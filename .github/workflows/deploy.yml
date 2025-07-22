@@ -69,6 +69,14 @@ jobs:
             -n fastfood \
             --dry-run=client -o yaml | kubectl apply -f -
 
+      - name: Criar secrets fila
+        run: |
+          kubectl create secret generic filas \
+            --from-literal=ENDERECO_FILA_PEDIDOS="${{ secrets.ENDERECO_FILA_pedidos }}" \
+            --from-literal=POSTGRES_PASSWORD="${{ secrets.ENDERECO_FILA_pagamentos }}" \
+            -n fastfood \
+            --dry-run=client -o yaml | kubectl apply -f -
+
       - name: Criar segredo do Cognito a partir dos GitHub Secrets
         run: |
           kubectl create secret generic cognito-config \
