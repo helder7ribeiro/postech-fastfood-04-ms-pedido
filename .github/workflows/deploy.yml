@@ -77,6 +77,15 @@ jobs:
             -n fastfood \
             --dry-run=client -o yaml | kubectl apply -f -
 
+      - name: Criar secret AWS
+        run: |
+          kubectl create secret generic aws-credentials \
+            --from-literal=AWS_ACCESS_KEY="${{ secrets.AWS_ACCESS_KEY_ID }}" \
+            --from-literal=AWS_SECRET_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
+            --from-literal=AWS_SESSION_TOKEN="${{ secrets.AWS_SESSION_TOKEN }}" \
+            -n fastfood \
+            --dry-run=client -o yaml | kubectl apply -f -
+
       - name: Criar segredo do Cognito a partir dos GitHub Secrets
         run: |
           kubectl create secret generic cognito-config \
