@@ -35,7 +35,7 @@ spring:
   cloud:
     aws:
       region:
-        static: ${AWS_REGION:sa-east-1}
+        static: us-east-1
       credentials:
         accessKey: ${AWS_ACCESS_KEY}
         secretKey: ${AWS_SECRET_KEY}
