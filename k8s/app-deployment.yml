@@ -61,6 +61,12 @@ spec:
                   name: aws-credentials
                   key: AWS_SESSION_TOKEN
 
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: AWS_REGION
+
           livenessProbe:
             httpGet:
               path: /actuator/health
