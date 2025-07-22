@@ -40,3 +40,13 @@ spring:
         accessKey: ${AWS_ACCESS_KEY}
         secretKey: ${AWS_SECRET_KEY}
         sessionToken: ${AWS_SESSION_TOKEN}
+logging:
+  level:
+    root: INFO
+    io.awspring.cloud.sqs: DEBUG
+    io.awspring.cloud.aws: DEBUG
+    software.amazon.awssdk.auth: DEBUG
+    software.amazon.awssdk.request: DEBUG
+    software.amazon.awssdk.http: DEBUG
+    org.springframework.cloud.aws.messaging.listener: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
